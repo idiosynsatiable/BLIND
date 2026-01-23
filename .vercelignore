@@ -1,0 +1,14 @@
+.git
+.gitignore
+.env.local
+.env.*.local
+node_modules
+.next
+.manus-logs
+*.log
+.DS_Store
+README.md
+RUNBOOK.md
+TESTPLAN.md
+SCHEMA.sql
+MANUS_INTEGRATION_MODE.md
