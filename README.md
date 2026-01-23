@@ -1,12 +1,18 @@
 # Shine in the Darkness
-I want this next upcoming quite to sink in, so please read it more than once if that is what it takes to be at the absolute:
 
-> When we say “It was nice seeing you,” we mean it.
-> me mean it so very much that it carries with it an essence of genuineness that can only be felt in the moments when we are closest to the source. Its pure, its innocence, but most of all its a love unrivaled.
+> “When we say *it was nice seeing you*, we mean it.”
 
-Shine in the Darkness is an accessibility-first, trade-forward nonprofit platform supporting blind and low-vision communities through dignified fundraising, elegant design, and transparent systems.
+For many people who are blind or low vision, seeing is not a casual phrase.
+It is a moment — rare, meaningful, and deeply human.
 
-Built with Next.js, TypeScript, TailwindCSS, and St
+Shine in the Darkness exists to create more of those moments.
+
+This is an accessibility-first, trade-forward nonprofit platform supporting blind and low-vision communities through dignified fundraising, elegant design, and transparent systems. We begin with something small and invite the world to trade it forward — not through pressure or pity, but through meaning and participation.
+
+Luxury here is not excess.
+It is intention, craftsmanship, and respect.
+
+Built with **Next.js**, **TypeScript**, **TailwindCSS**, and **Stripe**.
 
 ## Why This Exists
 
