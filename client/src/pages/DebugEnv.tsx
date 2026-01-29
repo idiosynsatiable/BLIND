@@ -5,15 +5,11 @@
  * NEVER shows actual values.
  */
 
-import { useEffect, useState } from "react";
-import { useNavigate } from "wouter";
+import { useEffect } from "react";
+import { useRouter } from "wouter";
 
 export function DebugEnv() {
-  const [navigate] = useNavigate();
-  const [buildInfo, setBuildInfo] = useState({
-    isDev: import.meta.env.DEV,
-    debugEnabled: import.meta.env.VITE_DEBUG === "true",
-  });
+  const router = useRouter();
 
   useEffect(() => {
     // Gate access: only allow in dev or when VITE_DEBUG=true
@@ -21,10 +17,13 @@ export function DebugEnv() {
     const debugEnabled = import.meta.env.VITE_DEBUG === "true";
 
     if (!isDev && !debugEnabled) {
-      navigate("/");
+      router.push("/");
       return;
     }
-  }, [navigate]);
+  }, [router]);
+
+  const isDev = import.meta.env.DEV;
+  const debugEnabled = import.meta.env.VITE_DEBUG === "true";
 
   const envVars = {
     "VITE_SUPABASE_URL": !!import.meta.env.VITE_SUPABASE_URL,
@@ -49,14 +48,14 @@ export function DebugEnv() {
             <div className="space-y-2 text-sm font-mono">
               <div>
                 <span className="text-muted-foreground">Mode:</span>{" "}
-                <span className={buildInfo.isDev ? "text-green-600" : "text-blue-600"}>
-                  {buildInfo.isDev ? "development" : "production"}
+                <span className={isDev ? "text-green-600" : "text-blue-600"}>
+                  {isDev ? "development" : "production"}
                 </span>
               </div>
               <div>
                 <span className="text-muted-foreground">Debug Enabled:</span>{" "}
-                <span className={buildInfo.debugEnabled ? "text-green-600" : "text-red-600"}>
-                  {buildInfo.debugEnabled ? "yes" : "no"}
+                <span className={debugEnabled ? "text-green-600" : "text-red-600"}>
+                  {debugEnabled ? "yes" : "no"}
                 </span>
               </div>
               <div>
