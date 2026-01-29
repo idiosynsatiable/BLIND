@@ -9,8 +9,7 @@ export interface EnvConfig {
     anonKey: string;
   };
   stripe: {
-    publicKey: string;
-    priceId: string;
+    publishableKey: string;
   };
   app: {
     url: string;
@@ -38,8 +37,7 @@ export function validateEnv(): EnvConfig {
         anonKey: getEnv("SUPABASE_ANON_KEY", true),
       },
       stripe: {
-        publicKey: getEnv("STRIPE_PUBLIC_KEY", true),
-        priceId: getEnv("STRIPE_PRICE_ID", true),
+        publishableKey: getEnv("STRIPE_PUBLISHABLE_KEY", true),
       },
       app: {
         url: getEnv("APP_URL", true),

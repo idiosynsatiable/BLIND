@@ -7,6 +7,8 @@ import { webhookRouter } from "./api/webhook.js";
 import { sponsorInquiryRouter } from "./api/sponsor-inquiry.js";
 import { stripeCheckoutRouter } from "./api/stripe-checkout.js";
 import { stripeWebhookRouter } from "./api/stripe-webhook.js";
+import { healthRouter } from "./api/health.js";
+import { getStripeClient } from "./lib/stripe.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,7 +21,17 @@ async function startServer() {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
+  // Initialize Stripe client and verify account
+  try {
+    await getStripeClient();
+    console.log("[Server] Stripe account verified successfully");
+  } catch (error) {
+    console.error("[Server] Stripe initialization failed:", error);
+    process.exit(1);
+  }
+
   // API Routes
+  app.use("/api", healthRouter);
   app.use("/api", checkoutRouter);
   app.use("/api", webhookRouter);
   app.use("/api", sponsorInquiryRouter);

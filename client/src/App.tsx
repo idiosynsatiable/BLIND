@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import Donate from "./pages/Donate";
 import DonateSuccess from "./pages/DonateSuccess";
 import DonateCancel from "./pages/DonateCancel";
+import { DebugEnv } from "./pages/DebugEnv";
 
 /**
  * App Router
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/donate" component={Donate} />
       <Route path="/donate/success" component={DonateSuccess} />
       <Route path="/donate/cancel" component={DonateCancel} />
+      <Route path="/debug/env" component={DebugEnv} />
       <Route path="/404" component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
